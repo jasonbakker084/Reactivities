@@ -30,7 +30,7 @@ namespace Application.Activities
 
             public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
-               var activiy = new Activity
+               var activity = new Activity
                {
                    Id = request.Id,
                    Title = request.Title,
@@ -41,7 +41,7 @@ namespace Application.Activities
                    Venue = request.Venue
                };
 
-               _context.Activities.Add(activiy);
+               _context.Activities.Add(activity);
                var success = await _context.SaveChangesAsync() > 0;
 
                if (success) return Unit.Value;
